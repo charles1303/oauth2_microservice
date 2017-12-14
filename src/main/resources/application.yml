@@ -1,0 +1,53 @@
+spring:
+  profiles.active: development
+
+---
+spring:
+  profiles: development
+  application:
+    name: oauth
+  datasource:
+    url: jdbc:mysql://localhost:3306/oauth
+    username: root
+    password: Chkonga_2
+    driverClassName: com.mysql.jdbc.Driver
+    test-on-borrow: true
+    test-while-idle: true
+    validation-query: select 1;
+    maxActive: 5
+    maxIdle: 5
+    minIdle: 2
+    initialSize: 0
+    maxWait: 30000
+    testOnReturn: false
+    testWhileIdle: false
+    timeBetweenEvictionRunsMillis: 5000
+    minEvictableIdleTimeMillis: 60000
+    removeAbandoned: false
+    removeAbandonedTimeout: 60
+    logAbandoned: false
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        ddl-auto: update
+
+security:
+  basic:
+    enable: false
+  ignored: /**
+  oauth2:
+    resource:
+      filter-order: 3
+  signing-key: MaYzkSjmkzPC57L
+  encoding-strength: 256
+  security-realm: OAuth 2 Realm
+  jwt:
+    client-id: oauthclientid
+    client-secret: XY7kmzoNzl100
+    grant-type: password 
+    scope-read: read
+    scope-write: write
+    resource-ids: oauthresourceid
